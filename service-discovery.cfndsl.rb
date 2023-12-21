@@ -12,7 +12,7 @@ CloudFormation do
 
     Output(:NamespaceId) {
       Value(Ref(:PrivateDnsNamespace))
-      Export FnSub("${EnvironmentName}-service-discovery-NamespaceId")
+      Export FnSub("${EnvironmentName}-#{component_name}-NamespaceId")
     }
   when 'public'
     ServiceDiscovery_PublicDnsNamespace(:PublicDnsNamespace) {
