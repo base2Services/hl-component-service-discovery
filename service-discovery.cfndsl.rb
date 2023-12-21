@@ -12,7 +12,7 @@ CloudFormation do
 
     Output(:NamespaceId) {
       Value(Ref(:PrivateDnsNamespace))
-      Export FnSub("${EnvironmentName}-#{component_name}-NamespaceId")
+      Export FnSub("${EnvironmentName}-service-discovery-NamespaceId")
     }
   when 'public'
     ServiceDiscovery_PublicDnsNamespace(:PublicDnsNamespace) {
@@ -32,7 +32,7 @@ CloudFormation do
 
     Output(:NamespaceId) {
       Value(Ref(:HttpNamespace))
-      Export FnSub("${EnvironmentName}-service-discovery-NamespaceId")
+      Export FnSub("${EnvironmentName}-#{component_name}-NamespaceId")
     }
   else
     raise "namespace `type` must be one of public | private | http"
