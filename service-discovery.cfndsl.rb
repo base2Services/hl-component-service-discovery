@@ -32,7 +32,7 @@ CloudFormation do
 
     Output(:NamespaceId) {
       Value(Ref(:HttpNamespace))
-      Export FnSub("${EnvironmentName}-#{component_name}-NamespaceId")
+      Export FnSub("${EnvironmentName}-service-discovery-NamespaceId")
     }
   else
     raise "namespace `type` must be one of public | private | http"
